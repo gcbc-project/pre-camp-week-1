@@ -59,5 +59,11 @@ public class Rain : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.AddScore(score);
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     public GameObject rain;
+    public Text TotalScoreTxt;
+
+    int totalScore = 0;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,5 +34,11 @@ public class GameManager : MonoBehaviour
     {
         //파라미터로 들어간 GameObject를 생성한다
         Instantiate(rain);
+    }
+
+    public void AddScore(int score)
+    {
+        totalScore += score;
+        TotalScoreTxt.text = totalScore.ToString();
     }
 }
