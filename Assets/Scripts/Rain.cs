@@ -22,35 +22,34 @@ public class Rain : MonoBehaviour
         this.transform.position = new Vector3(poX, poY, 0);
 
         // 비 오브젝트의 타입을 랜덤으로 생성 (1~3) 정수형
-        int rainType = Random.Range(1, 4);
+        int rainType = Random.Range(1, 5);
 
-        if (rainType == 1)
+        switch (rainType)
         {
-            size = 0.8f;
-            score = 1;
-            rainSprite.color = new Color(100 / 255f, 100 / 255f, 1f, 1f);
-        }
-        else if (rainType == 2)
-        {
-            size = 1.0f;
-            score = 2;
-            rainSprite.color = new Color(130 / 255f, 130 / 255f, 1f, 1f);
-        }
-        else if (rainType == 3)
-        {
-            size = 1.2f;
-            score = 3;
-            rainSprite.color = new Color(150 / 255f, 150 / 255f, 1f, 1f);
+            case 1:
+                size = 0.8f;
+                score = 1;
+                rainSprite.color = new Color(100 / 255f, 100 / 255f, 1f, 1f);
+                break;
+            case 2:
+                size = 1.0f;
+                score = 2;
+                rainSprite.color = new Color(130 / 255f, 130 / 255f, 1f, 1f);
+                break;
+            case 3:
+                size = 1.2f;
+                score = 3;
+                rainSprite.color = new Color(150 / 255f, 150 / 255f, 1f, 1f);
+                break;
+            case 4:
+                size = 0.8f;
+                score = -5;
+                rainSprite.color = new Color(1f, 100 / 255f, 1f, 1f);
+                break;
         }
 
         // 비 오브젝트의 크기를 변경
         transform.localScale = new Vector3(size, size, 0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
