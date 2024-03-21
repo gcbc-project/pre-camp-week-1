@@ -3,7 +3,11 @@ guid: 48da5e9f10405f04f9308b0de2dc4345
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Rain: {instanceID: 0}
+  - TotalScoreTxt: {instanceID: 0}
+  - TotalTimeTxt: {instanceID: 0}
+  - EndPanel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

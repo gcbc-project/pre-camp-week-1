@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameObject rain;
+    public GameObject Rain;
     public Text TotalScoreTxt;
+    public Text TotalTimeTxt;
+    public GameObject EndPanel;
 
     int totalScore = 0;
+    float totalTime = 30.0f;
 
     private void Awake()
     {
         Instance = this;
+        Time.timeScale = 1.0f;
     }
 
     // Start is called before the first frame update
@@ -28,12 +32,24 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+        if (totalTime > 0)
+        {
+            totalTime -= Time.deltaTime;
+        }
+        else
+        {
+            totalTime = 0f;
+            EndPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        TotalTimeTxt.text = totalTime.ToString("N2");
     }
 
     void MadeRain()
     {
         //파라미터로 들어간 GameObject를 생성한다
-        Instantiate(rain);
+        Instantiate(Rain);
     }
 
     public void AddScore(int score)
